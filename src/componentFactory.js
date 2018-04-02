@@ -98,6 +98,10 @@ export default function(pdfjsWrapper) {
 			this.$on('page-size', function(width, height) {
 				this.pdf.setCanvasHeight(this.pdf.getCanvas().offsetWidth  * (height / width) + 'px');
 			});
+
+			this.$on('link-clicked', function(pageNumber) {
+				this.$emit('link-clicked', pageNumber)
+			});
 			
 			this.pdf.loadDocument(this.src);
 		},
