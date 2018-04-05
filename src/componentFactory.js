@@ -71,12 +71,7 @@ export default function(pdfjsWrapper) {
 				// update the page when the resolution is too poor
 				var resolutionScale = this.pdf.getResolutionScale();
 				
-				if ( resolutionScale < 0.85 || resolutionScale > 1.15 )
-				{
-					this.pdf.renderPage(this.rotate);
-				}
-					
-
+				this.pdf.renderPage(this.rotate);
 				this.$refs.annotationLayer.style.transform = 'scale('+resolutionScale+')';
 			},
 			print: function(dpi, pageList) {
